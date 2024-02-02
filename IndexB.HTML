@@ -1,0 +1,1803 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bouncing Balls</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: sans-serif;
+    }
+
+    #ball {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: red;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: bounce 1s infinite alternate;
+    }
+
+    @keyframes bounce {
+      0% {
+        top: 50%;
+        background-color: red;
+      }
+
+      25% {
+        top: 40%;
+        background-color: green;
+      }
+
+      50% {
+        top: 50%;
+        background-color: yellow;
+      }
+
+      75% {
+        top: 60%;
+        background-color: black;
+      }
+
+      100% {
+        top: 50%;
+        background-color: red;
+      }
+    }
+
+    #ball:hover {
+      animation-play-state: paused;
+      transform: scale(2);
+    }
+
+    #ball:active {
+      animation-play-state: running;
+      transform: scale(1);
+    }
+
+    #web {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+    }
+
+    #web circle {
+      fill: white;
+      stroke: white;
+      stroke-width: 1px;
+    }
+
+    #web line {
+      stroke: white;
+      stroke-width: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div id="ball"></div>
+  <svg id="web" width="500" height="500">
+    <defs>
+      <radialGradient id="gradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="red" />
+        <stop offset="25%" stop-color="green" />
+        <stop offset="50%" stop-color="yellow" />
+        <stop offset="75%" stop-color="black" />
+        <stop offset="100%" stop-color="red" />
+      </radialGradient>
+    </defs>
+    <circle cx="250" cy="250" r="200" fill="url(#gradient)" />
+    <line x1="250" y1="50" x2="250" y2="450" />
+    <line x1="50" y1="250" x2="450" y2="250" />
+    <circle cx="125" cy="125" r="50" fill="url(#gradient)" />
+    <circle cx="375" cy="125" r="50" fill="url(#gradient)" />
+    <circle cx="125" cy="375" r="50" fill="url(#gradient)" />
+    <circle cx="375" cy="375" r="50" fill="url(#gradient)" />
+    <line x1="125" y1="250" x2="375" y2="250" />
+    <line x1="250" y1="125" x2="250" y2="375" />
+  </svg>
+
+  <script>
+    const ball = document.getElementById('ball');
+    const web = document.getElementById('web');
+
+    ball.addEventListener('click', () => {
+      web.style.display = 'block';
+    });
+
+    ball.addEventListener('animationend', () => {
+      web.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
+``` 
+
+2
+Continue the code following this prompt: WRITE A WEBSITE THAT BEGINS WITH AN ANIMATION OF A SMALL BALL HORIZONTALLY LATERALLY FROM OFF SCREEN TO MEDIAN, THEN STOPS AND BOUNCES VERTICALLY, PROGRESSIVELY LESS AND LESS. IF BOUNCE, CHANGE OF COLOR, CYCLE RED, GREEN, YELLOW, BLACK. F THE USER CLICKS THE BOUNCING BALL, THE BALL APPEAR TO ZOOM IN / EXPAND, HATCH AND MULTIPLY INTO A VISUAL WEB OF MULTIPLE OTHER BALLS, CONNECTED BY SPOKES TO OUR  ORIGINAL, WITH EACH OF THESE BALLS CARRYING THE LABELS, ONE TO A BALL, OF "personal" "books" "resumé" "links"Color scheme: Black, white, with pops of blue. Style: Avant-Garde, Minimalist, ARtistic Influence: Mindmapping, 1920s Weimar Republic Cinema,  Early 1980s video games, Zine culture Codes: html, css, js, react, and anymore you decide to include. T BEGINS WITH AN ANIMATION OF A SMALL BALL HORIZONTALLY LATERALLY FROM OFF SCREEN TO MEDIAN, THEN STOPS AND BOUNCES VERTICALLY, PROGRESSIVELY LESS AND LESS. IF BOUNCE, CHANGE OF COLOR, CYCLE RED, GREEN, YELLOW, BLACK. F THE USER CLICKS THE BOUNCING BALL, THE BALL APPEAR TO ZOOM IN / EXPAND, HATCH AND MULTIPLY INTO A VISUAL WEB OF MULTIPLE OTHER BALLS, CONNECTED BY SPOKES TO OUR  ORIGINAL, WITH EACH OF THESE BALLS CARRYING THE LABELS, ONE TO A BALL, 
+
+`html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bouncing Balls</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: sans-serif;
+    }
+
+    #ball {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: red;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: bounce 1s infinite alternate;
+    }
+
+    @keyframes bounce {
+      0% {
+        top: 50%;
+        background-color: red;
+      }
+
+      25% {
+        top: 40%;
+        background-color: green;
+      }
+
+      50% {
+        top: 50%;
+        background-color: yellow;
+      }
+
+      75% {
+        top: 60%;
+        background-color: black;
+      }
+
+      100% {
+        top: 50%;
+        background-color: red;
+      }
+    }
+
+    #ball:hover {
+      animation-play-state: paused;
+      transform: scale(2);
+    }
+
+    #ball:active {
+      animation-play-state: running;
+      transform: scale(1);
+    }
+
+    #web {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+    }
+
+    #web circle {
+      fill: white;
+      stroke: white;
+      stroke-width: 1px;
+    }
+
+    #web line {
+      stroke: white;
+      stroke-width: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div id="ball"></div>
+  <svg id="web" width="500" height="500">
+    <defs>
+      <radialGradient id="gradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="red" />
+        <stop offset="25%" stop-color="green" />
+        <stop offset="50%" stop-color="yellow" />
+        <stop offset="75%" stop-color="black" />
+        <stop offset="100%" stop-color="red" />
+      </radialGradient>
+    </defs>
+    <circle cx="250" cy="250" r="200" fill="url(#gradient)" />
+    <line x1="250" y1="50" x2="250" y2="450" />
+    <line x1="50" y1="250" x2="450" y2="250" />
+    <circle cx="125" cy="125" r="50" fill="url(#gradient)" />
+    <circle cx="375" cy="125" r="50" fill="url(#gradient)" />
+    <circle cx="125" cy="375" r="50" fill="url(#gradient)" />
+    <circle cx="375" cy="375" r="50" fill="url(#gradient)" />
+    <line x1="125" y1="250" x2="375" y2="250" />
+    <line x1="250" y1="125" x2="250" y2="375" />
+  </svg>
+
+  <script>
+    const ball = document.getElementById('ball');
+    const web = document.getElementById('web');
+ ball.addEventListener('click', () => {
+      web.style.display = 'block';
+    });
+
+    ball.addEventListener('animationend', () => {
+      web.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
+ ```html
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Avant-Garde Web</title>
+  <style>
+    body {
+      background: black;
+      color: white;
+      font-family: sans-serif;
+    }
+
+    #container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #web-container {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      overflow: hidden;
+    }
+
+    #web {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      color: white;
+      font-size: 24px;
+      text-align: center;
+      line-height: 500px;
+    }
+
+    #web:hover {
+      background: white;
+      color: black;
+    }
+
+    #web-links {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #web-links a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+    }
+
+    #web-links a:hover {
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div id="web-container">
+      <div id="web">
+        <h1>Avant</h1>
+        <h1>Garde</h1>
+        <div id="web-links">
+          <a href="#">Personal</a>
+          <a href="#">Books</a>
+          <a href="#">Résumé</a>
+          <a href="#">Links</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+``` 
+3
+html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bouncing Balls</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: sans-serif;
+    }
+
+    #ball {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: red;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: bounce 1s infinite alternate;
+    }
+
+    @keyframes bounce {
+      0% {
+        top: 50%;
+        background-color: red;
+      }
+
+      25% {
+        top: 40%;
+        background-color: green;
+      }
+
+      50% {
+        top: 50%;
+        background-color: yellow;
+      }
+
+      75% {
+        top: 60%;
+        background-color: black;
+      }
+
+      100% {
+        top: 50%;
+        background-color: red;
+      }
+    }
+
+    #ball:hover {
+      animation-play-state: paused;
+      transform: scale(2);
+    }
+
+    #ball:active {
+      animation-play-state: running;
+      transform: scale(1);
+    }
+
+    #web {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+    }
+
+    #web circle {
+      fill: white;
+      stroke: white;
+      stroke-width: 1px;
+    }
+
+    #web line {
+      stroke: white;
+      stroke-width: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div id="ball"></div>
+  <svg id="web" width="500" height="500">
+    <defs>
+      <radialGradient id="gradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="red" />
+        <stop offset="25%" stop-color="green" />
+        <stop offset="50%" stop-color="yellow" />
+        <stop offset="75%" stop-color="black" />
+        <stop offset="100%" stop-color="red" />
+      </radialGradient>
+    </defs>
+    <circle cx="250" cy="250" r="200" fill="url(#gradient)" />
+    <line x1="250" y1="50" x2="250" y2="450" />
+    <line x1="50" y1="250" x2="450" y2="250" />
+    <circle cx="125" cy="125" r="50" fill="url(#gradient)" />
+    <circle cx="375" cy="125" r="50" fill="url(#gradient)" />
+    <circle cx="125" cy="375" r="50" fill="url(#gradient)" />
+    <circle cx="375" cy="375" r="50" fill="url(#gradient)" />
+    <line x1="125" y1="250" x2="375" y2="250" />
+    <line x1="250" y1="125" x2="250" y2="375" />
+  </svg>
+
+  <script>
+    const ball = document.getElementById('ball');
+    const web = document.getElementById('web');
+
+    ball.addEventListener('click', () => {
+      web.style.display = 'block';
+    });
+
+    ball.addEventListener('animationend', () => {
+      web.style.display = 'none';
+    });
+  </script>
+
+1
+WRITE A WEBSITE THAT BEGINS WITH AN ANIMATION OF A SMALL BALL HORIZONTALLY LATERALLY FROM OFF SCREEN TO MEDIAN, THEN STOPS AND BOUNCES VERTICALLY, PROGRESSIVELY LESS AND LESS. IF BOUNCE, CHANGE OF COLOR, CYCLE RED, GREEN, YELLOW, BLACK. F THE USER CLICKS THE BOUNCING BALL, THE BALL APPEAR TO ZOOM IN / EXPAND, HATCH AND MULTIPLY INTO A VISUAL WEB OF MULTIPLE OTHER BALLS, CONNECTED BY SPOKES TO OUR  ORIGINAL, WITH EACH OF THESE BALLS CARRYING THE LABELS, ONE TO A BALL, OF "personal" "books" "resumé" "links"Color scheme: Black, white, with pops of blue. Style: Avant-Garde, Minimalist, ARtistic Influence: Mindmapping, 1920s Weimar Republic Cinema,  Early 1980s video games, Zine culture Codes: html, css, js, react, and anymore you decide to include. 
+
+NEGATIVE PROMPT: traditional static website that uses non-interactive  recordings. ﻿WRITE A WEBSITE THAT BEGINS WITH AN ANIMATION OF A SMALL BALL HORIZONTALLY LATERALLY FROM OFF SCREEN TO MEDIAN, THEN STOPS AND BOUNCES VERTICALLY, PROGRESSIVELY LESS AND LESS. IF BOUNCE, CHANGE OF COLOR, CYCLE RED, GREEN, YELLOW, BLACK. F THE USER CLICKS THE BOUNCING BALL, THE BALL APPEAR TO ZOOM IN / EXPAND, HATCH AND MULTIPLY INTO A VISUAL WEB OF MULTIPLE OTHER BALLS, CONNECTED BY SPOKES TO OUR  ORIGINAL, WITH EACH OF THESE BALLS CARRYING THE LABELS, ONE TO A BALL, OF "personal" "books" "resumé" "links"Color scheme: Black, white, with pops of blue. Style: Avant-Garde, Minimalist, ARtistic Influence: Mindmapping, 1920s Weimar Republic Cinema,  Early 1980s video games, Zine culture Codes: html, css, js, react, and anymore you decide to include.
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bouncing Balls</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: sans-serif;
+    }
+
+    #ball {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: red;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: bounce 1s infinite alternate;
+    }
+
+    @keyframes bounce {
+      0% {
+        top: 50%;
+        background-color: red;
+      }
+
+      25% {
+        top: 40%;
+        background-color: green;
+      }
+
+      50% {
+        top: 50%;
+        background-color: yellow;
+      }
+
+      75% {
+        top: 60%;
+        background-color: black;
+      }
+
+      100% {
+        top: 50%;
+        background-color: red;
+      }
+    }
+
+    #ball:hover {
+      animation-play-state: paused;
+      transform: scale(2);
+    }
+
+    #ball:active {
+      animation-play-state: running;
+      transform: scale(1);
+    }
+
+    #web {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+    }
+
+    #web circle {
+      fill: white;
+      stroke: white;
+      stroke-width: 1px;
+    }
+
+    #web line {
+      stroke: white;
+      stroke-width: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div id="ball"></div>
+  <svg id="web" width="500" height="500">
+    <defs>
+      <radialGradient id="gradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="red" />
+        <stop offset="25%" stop-color="green" />
+        <stop offset="50%" stop-color="yellow" />
+        <stop offset="75%" stop-color="black" />
+        <stop offset="100%" stop-color="red" />
+      </radialGradient>
+    </defs>
+    <circle cx="250" cy="250" r="200" fill="url(#gradient)" />
+    <line x1="250" y1="50" x2="250" y2="450" />
+    <line x1="50" y1="250" x2="450" y2="250" />
+    <circle cx="125" cy="125" r="50" fill="url(#gradient)" />
+    <circle cx="375" cy="125" r="50" fill="url(#gradient)" />
+    <circle cx="125" cy="375" r="50" fill="url(#gradient)" />
+    <circle cx="375" cy="375" r="50" fill="url(#gradient)" />
+    <line x1="125" y1="250" x2="375" y2="250" />
+    <line x1="250" y1="125" x2="250" y2="375" />
+  </svg>
+
+  <script>
+    const ball = document.getElementById('ball');
+    const web = document.getElementById('web');
+ ball.addEventListener('click', () => {
+      web.style.display = 'block';
+    });
+
+    ball.addEventListener('animationend', () => {
+      web.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
+ ```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Avant-Garde Web</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: sans-serif;
+    }
+
+    #container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    #mindmap {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #mindmap .node {
+      width: 100px;
+      height: 100px;
+      border: 1px solid white;
+      border-radius: 50%;
+      background-color: black;
+      color: white;
+      font-size: 24px;
+      text-align: center;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    #mindmap .node:hover {
+      background-color: white;
+      color: black;
+    }
+
+    #mindmap .node:active {
+      transform: scale(1.5);
+    }
+
+    #mindmap .line {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      background-color: white;
+    }
+
+    #weimar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #weimar .film {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: 500px;
+      background-color: white;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #weimar .film:hover {
+      opacity: 1;
+    }
+
+    #videogames {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #videogames .game {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 200px;
+      background-color: white;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #videogames .game:hover {
+      opacity: 1;
+    }
+
+    #zine {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #zine .page {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      background-color: white;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #zine .page:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="content">
+      <div id="mindmap">
+        <div class="node personal">Personal</div>
+        <div class="node books">Books</div>
+        <div class="node resume">Resume</div>
+        <div class="node links">Links</div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div id="weimar">
+        <div class="film"></div>
+      </div>
+      <div id="videogames">
+        <div class="game"></div>
+        <div class="game"></div>
+        <div class="game"></div>
+        <div class="game"></div>
+      </div>
+      <div id="zine">
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const mindmap = document.getElementById('mindmap');
+    const weimar = document.getElementById('weimar');
+    const videogames = document.getElementById('videogames');
+    const zine = document.getElementById('zine');
+
+    const nodes = document.querySelectorAll('.node');
+    nodes.forEach(node => {
+      node.addEventListener('click', () => {
+        mindmap.style.display = 'none';
+        weimar.style.display = 'block';
+        videogames.style.display = 'block';
+        zine.style.display = 'block';
+
+        setTimeout(() => {
+          weimar.style.opacity = 1;
+          videogames.style.opacity = 1;
+          zine.style.opacity = 1;
+        }, 100);
+      });
+    });
+
+    weimar.addEventListener('click', () => {
+      weimar.style.opacity = 0;
+      videogames.style.opacity = 0;
+      zine.style.opacity = 0;
+
+      setTimeout(() => {
+        weimar.style.display = 'none';
+        videogames.style.display = 'none';
+        zine.style.display = 'none';
+        mindmap.style.display = 'flex';
+      }, 1000);
+    });
+
+    videogames.addEventListener('click', () => {
+      weimar.style.opacity = 0;
+      videogames.style.opacity = 0;
+      zine.style.opacity = 0;
+
+      setTimeout(() => {
+        weimar.style.display = 'none';
+        videogames.style.display = 'none';
+        zine.style.display = 'none';
+        mindmap.style.display = 'flex';
+      }, 1000);
+    });
+
+    zine.addEventListener('click', () => {
+      weimar.style.opacity = 0;
+      videogames.style.opacity = 0;
+      zine.style.opacity = 0;
+
+      setTimeout(() => {
+        weimar.style.display = 'none';
+        videogames.style.display = 'none';
+        zine.style.display = 'none';
+        mindmap.style.display = 'flex';
+      }, 1000);
+    });
+  </script>
+</body>
+    #ball {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: red;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: bounce 1s infinite alternate;
+    }
+
+    @keyframes bounce {
+      0% {
+        top: 50%;
+        background-color: red;
+      }
+
+      25% {
+        top: 40%;
+        background-color: green;
+      }
+
+      50% {
+        top: 50%;
+        background-color: yellow;
+      }
+
+      75% {
+        top: 60%;
+        background-color: black;
+      }
+
+      100% {
+        top: 50%;
+        background-color: red;
+      }
+    }
+
+    #ball:hover {
+      animation-play-state: paused;
+      transform: scale(2);
+    }
+
+    #ball:active {
+      animation-play-state: running;
+      transform: scale(1);
+    }
+
+    #web {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+    }
+
+    #web circle {
+      fill: white;
+      stroke: white;
+      stroke-width: 1px;
+    }
+
+    #web line {
+      stroke: white;
+      stroke-width: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div id="ball"></div>
+  <svg id="web" width="500" height="500">
+    <defs>
+      <radialGradient id="gradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="red" />
+        <stop offset="25%" stop-color="green" />
+        <stop offset="50%" stop-color="yellow" />
+        <stop offset="75%" stop-color="black" />
+        <stop offset="100%" stop-color="red" />
+      </radialGradient>
+    </defs>
+    <circle cx="250" cy="250" r="200" fill="url(#gradient)" />
+    <line x1="250" y1="50" x2="250" y2="450" />
+    <line x1="50" y1="250" x2="450" y2="250" />
+    <circle cx="125" cy="125" r="50" fill="url(#gradient)" />
+    <circle cx="375" cy="125" r="50" fill="url(#gradient)" />
+    <circle cx="125" cy="375" r="50" fill="url(#gradient)" />
+    <circle cx="375" cy="375" r="50" fill="url(#gradient)" />
+    <line x1="125" y1="250" x2="375" y2="250" />
+    <line x1="250" y1="125" x2="250" y2="375" />
+  </svg>
+
+  <script>
+    const ball = document.getElementById('ball');
+    const web = document.getElementById('web');
+ ball.addEventListener('click', () => {
+      web.style.display = 'block';
+    });
+
+    ball.addEventListener('animationend', () => {
+      web.style.display = 'none';
+    });
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: black;
+      color: white;
+      font-family: sans-serif;
+    }
+
+    .container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mindmap {
+      width: 500px;
+      height: 500px;
+      border: 1px solid white;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .mindmap-node {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: white;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .mindmap-node:hover {
+      background-color: blue;
+      cursor: pointer;
+    }
+
+    .mindmap-node:active {
+      background-color: red;
+    }
+
+    .mindmap-label {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 12px;
+    }
+
+    .mindmap-line {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 0;
+      height: 0;
+      border-left: 1px solid white;
+      border-bottom: 1px solid white;
+    }
+  </style>
+<body>
+  <div class="container">
+    <div class="mindmap">
+      <div class="mindmap-node">
+        <div class="mindmap-label">Personal</div>
+      </div>
+      <div class="mindmap-node">
+        <div class="mindmap-label">Books</div>
+      </div>
+      <div class="mindmap-node">
+        <div class="mindmap-label">Résumé</div>
+      </div>
+      <div class="mindmap-node">
+        <div class="mindmap-label">Links</div>
+      </div>
+      <div class="mindmap-line"></div>
+      <div class="mindmap-line"></div>
+      <div class="mindmap-line"></div>
+      <div class="mindmap-line"></div>
+    </div>
+  </div>
+</body>
+
+</html>
+``` 
+
+    #ball {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: red;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: bounce 1s infinite alternate;
+    }
+
+    @keyframes bounce {
+      0% {
+        top: 50%;
+        background-color: red;
+      }
+
+      25% {
+        top: 40%;
+        background-color: green;
+      }
+
+      50% {
+        top: 50%;
+        background-color: yellow;
+      }
+
+      75% {
+        top: 60%;
+        background-color: black;
+      }
+
+      100% {
+        top: 50%;
+        background-color: red;
+      }
+    }
+
+    #ball:hover {
+      animation-play-state: paused;
+      transform: scale(2);
+    }
+
+    #ball:active {
+      animation-play-state: running;
+      transform: scale(1);
+    }
+
+    #web {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+    }
+
+    #web circle {
+      fill: white;
+      stroke: white;
+      stroke-width: 1px;
+    }
+
+    #web line {
+      stroke: white;
+      stroke-width: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div id="ball"></div>
+  <svg id="web" width="500" height="500">
+    <defs>
+      <radialGradient id="gradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="red" />
+        <stop offset="25%" stop-color="green" />
+        <stop offset="50%" stop-color="yellow" />
+        <stop offset="75%" stop-color="black" />
+        <stop offset="100%" stop-color="red" />
+      </radialGradient>
+    </defs>
+    <circle cx="250" cy="250" r="200" fill="url(#gradient)" />
+    <line x1="250" y1="50" x2="250" y2="450" />
+    <line x1="50" y1="250" x2="450" y2="250" />
+    <circle cx="125" cy="125" r="50" fill="url(#gradient)" />
+    <circle cx="375" cy="125" r="50" fill="url(#gradient)" />
+    <circle cx="125" cy="375" r="50" fill="url(#gradient)" />
+    <circle cx="375" cy="375" r="50" fill="url(#gradient)" />
+    <line x1="125" y1="250" x2="375" y2="250" />
+    <line x1="250" y1="125" x2="250" y2="375" />
+  </svg>
+
+  <script>
+    const ball = document.getElementById('ball');
+    const web = document.getElementById('web');
+ ball.addEventListener('click', () => {
+      web.style.display = 'block';
+    });
+
+    ball.addEventListener('animationend', () => {
+      web.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
+ ```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Avant-Garde Web</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: sans-serif;
+    }
+
+    #container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    #mindmap {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #mindmap .node {
+      width: 100px;
+      height: 100px;
+      border: 1px solid white;
+      border-radius: 50%;
+      background-color: black;
+      color: white;
+      font-size: 24px;
+      text-align: center;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    #mindmap .node:hover {
+      background-color: white;
+      color: black;
+    }
+
+    #mindmap .node:active {
+      transform: scale(1.5);
+    }
+
+    #mindmap .line {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      background-color: white;
+    }
+
+    #weimar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #weimar .film {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: 500px;
+      background-color: white;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #weimar .film:hover {
+      opacity: 1;
+    }
+
+    #videogames {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #videogames .game {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 200px;
+      background-color: white;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #videogames .game:hover {
+      opacity: 1;
+    }
+
+    #zine {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #zine .page {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      background-color: white;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #zine .page:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="content">
+      <div id="mindmap">
+        <div class="node personal">Personal</div>
+        <div class="node books">Books</div>
+        <div class="node resume">Resume</div>
+        <div class="node links">Links</div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div id="weimar">
+        <div class="film"></div>
+      </div>
+      <div id="videogames">
+        <div class="game"></div>
+        <div class="game"></div>
+        <div class="game"></div>
+        <div class="game"></div>
+      </div>
+      <div id="zine">
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const mindmap = document.getElementById('mindmap');
+    const weimar = document.getElementById('weimar');
+    const videogames = document.getElementById('videogames');
+    const zine = document.getElementById('zine');
+
+    const nodes = document.querySelectorAll('.node');
+    nodes.forEach(node => {
+      node.addEventListener('click', () => {
+        mindmap.style.display = 'none';
+        weimar.style.display = 'block';
+        videogames.style.display = 'block';
+        zine.style.display = 'block';
+
+        setTimeout(() => {
+          weimar.style.opacity = 1;
+          videogames.style.opacity = 1;
+          zine.style.opacity = 1;
+        }, 100);
+      });
+    });
+
+    weimar.addEventListener('click', () => {
+      weimar.style.opacity = 0;
+      videogames.style.opacity = 0;
+      zine.style.opacity = 0;
+
+      setTimeout(() => {
+        weimar.style.display = 'none';
+        videogames.style.display = 'none';
+        zine.style.display = 'none';
+        mindmap.style.display = 'flex';
+      }, 1000);
+    });
+
+    videogames.addEventListener('click', () => {
+      weimar.style.opacity = 0;
+      videogames.style.opacity = 0;
+      zine.style.opacity = 0;
+
+      setTimeout(() => {
+        weimar.style.display = 'none';
+        videogames.style.display = 'none';
+        zine.style.display = 'none';
+        mindmap.style.display = 'flex';
+      }, 1000);
+    });
+
+    zine.addEventListener('click', () => {
+      weimar.style.opacity = 0;
+      videogames.style.opacity = 0;
+      zine.style.opacity = 0;
+
+      setTimeout(() => {
+        weimar.style.display = 'none';
+        videogames.style.display = 'none';
+        zine.style.display = 'none';
+        mindmap.style.display = 'flex';
+      }, 1000);
+    });
+  </script>
+</body>
+    #ball {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: red;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: bounce 1s infinite alternate;
+    }
+
+    @keyframes bounce {
+      0% {
+        top: 50%;
+        background-color: red;
+      }
+
+      25% {
+        top: 40%;
+        background-color: green;
+      }
+
+      50% {
+        top: 50%;
+        background-color: yellow;
+      }
+
+      75% {
+        top: 60%;
+        background-color: black;
+      }
+
+      100% {
+        top: 50%;
+        background-color: red;
+      }
+    }
+
+    #ball:hover {
+      animation-play-state: paused;
+      transform: scale(2);
+    }
+
+    #ball:active {
+      animation-play-state: running;
+      transform: scale(1);
+    }
+
+    #web {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+    }
+
+    #web circle {
+      fill: white;
+      stroke: white;
+      stroke-width: 1px;
+    }
+
+    #web line {
+      stroke: white;
+      stroke-width: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div id="ball"></div>
+  <svg id="web" width="500" height="500">
+    <defs>
+      <radialGradient id="gradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="red" />
+        <stop offset="25%" stop-color="green" />
+        <stop offset="50%" stop-color="yellow" />
+        <stop offset="75%" stop-color="black" />
+        <stop offset="100%" stop-color="red" />
+      </radialGradient>
+    </defs>
+    <circle cx="250" cy="250" r="200" fill="url(#gradient)" />
+    <line x1="250" y1="50" x2="250" y2="450" />
+    <line x1="50" y1="250" x2="450" y2="250" />
+    <circle cx="125" cy="125" r="50" fill="url(#gradient)" />
+    <circle cx="375" cy="125" r="50" fill="url(#gradient)" />
+    <circle cx="125" cy="375" r="50" fill="url(#gradient)" />
+    <circle cx="375" cy="375" r="50" fill="url(#gradient)" />
+    <line x1="125" y1="250" x2="375" y2="250" />
+    <line x1="250" y1="125" x2="250" y2="375" />
+  </svg>
+
+  <script>
+    const ball = document.getElementById('ball');
+    const web = document.getElementById('web');
+ ball.addEventListener('click', () => {
+      web.style.display = 'block';
+    });
+
+    ball.addEventListener('animationend', () => {
+      web.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
+ ```html
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Avant-Garde Web Design</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: black;
+      color: white;
+      font-family: sans-serif;
+    }
+
+    .container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mindmap {
+      width: 500px;
+      height: 500px;
+      border: 1px solid white;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .mindmap-node {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: white;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .mindmap-node:hover {
+      background-color: blue;
+      cursor: pointer;
+    }
+
+    .mindmap-node:active {
+      background-color: red;
+    }
+
+    .mindmap-label {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 12px;
+    }
+
+    .mindmap-line {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 0;
+      height: 0;
+      border-left: 1px solid white;
+      border-bottom: 1px solid white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="mindmap">
+      <div class="mindmap-node">
+        <div class="mindmap-label">Personal</div>
+      </div>
+      <div class="mindmap-node">
+        <div class="mindmap-label">Books</div>
+      </div>
+      <div class="mindmap-node">
+        <div class="mindmap-label">Résumé</div>
+      </div>
+      <div class="mindmap-node">
+        <div class="mindmap-label">Links</div>
+      </div>
+      <div class="mindmap-line"></div>
+      <div class="mindmap-line"></div>
+      <div class="mindmap-line"></div>
+      <div class="mindmap-line"></div>
+    </div>
+  </div>
+</body>
+//FILL THIS IN
+
+</body>
+</html>
+ ```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Avant-Garde Web</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: sans-serif;
+    }
+
+    #container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    #mindmap {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #mindmap .node {
+      width: 100px;
+      height: 100px;
+      border: 1px solid white;
+      border-radius: 50%;
+      background-color: black;
+      color: white;
+      font-size: 24px;
+      text-align: center;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    #mindmap .node:hover {
+      background-color: white;
+      color: black;
+    }
+
+    #mindmap .node:active {
+      transform: scale(1.5);
+    }
+
+    #mindmap .line {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      background-color: white;
+    }
+
+    #weimar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #weimar .film {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: 500px;
+      background-color: white;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #weimar .film:hover {
+      opacity: 1;
+    }
+
+    #videogames {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #videogames .game {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 200px;
+      background-color: white;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #videogames .game:hover {
+      opacity: 1;
+    }
+
+    #zine {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #zine .page {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      background-color: white;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #zine .page:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="content">
+      <div id="mindmap">
+        <div class="node personal">Personal</div>
+        <div class="node books">Books</div>
+        <div class="node resume">Resume</div>
+        <div class="node links">Links</div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div id="weimar">
+        <div class="film"></div>
+      </div>
+      <div id="videogames">
+        <div class="game"></div>
+        <div class="game"></div>
+        <div class="game"></div>
+        <div class="game"></div>
+      </div>
+      <div id="zine">
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const mindmap = document.getElementById('mindmap');
+    const weimar = document.getElementById('weimar');
+    const videogames = document.getElementById('videogames');
+    const zine = document.getElementById('zine');
+
+    const nodes = document.querySelectorAll('.node');
+    nodes.forEach(node => {
+      node.addEventListener('click', () => {
+        mindmap.style.display = 'none';
+        weimar.style.display = 'block';
+        videogames.style.display = 'block';
+        zine.style.display = 'block';
+
+        setTimeout(() => {
+          weimar.style.opacity = 1;
+          videogames.style.opacity = 1;
+          zine.style.opacity = 1;
+        }, 100);
+      });
+    });
+
+    weimar.addEventListener('click', () => {
+      weimar.style.opacity = 0;
+      videogames.style.opacity = 0;
+      zine.style.opacity = 0;
+
+      setTimeout(() => {
+        weimar.style.display = 'none';
+        videogames.style.display = 'none';
+        zine.style.display = 'none';
+        mindmap.style.display = 'flex';
+      }, 1000);
+    });
+
+    videogames.addEventListener('click', () => {
+      weimar.style.opacity = 0;
+      videogames.style.opacity = 0;
+      zine.style.opacity = 0;
+
+      setTimeout(() => {
+        weimar.style.display = 'none';
+        videogames.style.display = 'none';
+        zine.style.display = 'none';
+        mindmap.style.display = 'flex';
+      }, 1000);
+    });
+
+    zine.addEventListener('click', () => {
+      weimar.style.opacity = 0;
+      videogames.style.opacity = 0;
+      zine.style.opacity = 0;
+
+      setTimeout(() => {
+        weimar.style.display = 'none';
+        videogames.style.display = 'none';
+        zine.style.display = 'none';
+        mindmap.style.display = 'flex';
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
+``` 
