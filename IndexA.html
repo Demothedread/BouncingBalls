@@ -1,0 +1,262 @@
+html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bouncing Balls</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: sans-serif;
+    }
+
+    #ball {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: red;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: bounce 1s infinite alternate;
+    }
+
+    @keyframes bounce {
+      0% {
+        top: 50%;
+        background-color: red;
+      }
+
+      25% {
+        top: 40%;
+        background-color: green;
+      }
+
+      50% {
+        top: 50%;
+        background-color: yellow;
+      }
+
+      75% {
+        top: 60%;
+        background-color: black;
+      }
+
+      100% {
+        top: 50%;
+        background-color: red;
+      }
+    }
+
+    #ball:hover {
+      animation-play-state: paused;
+      transform: scale(2);
+    }
+
+    #ball:active {
+      animation-play-state: running;
+      transform: scale(1);
+    }
+
+    #web {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+    }
+
+    #web circle {
+      fill: white;
+      stroke: white;
+      stroke-width: 1px;
+    }
+
+    #web line {
+      stroke: white;
+      stroke-width: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div id="ball"></div>
+  <svg id="web" width="500" height="500">
+    <defs>
+      <radialGradient id="gradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="red" />
+        <stop offset="25%" stop-color="green" />
+        <stop offset="50%" stop-color="yellow" />
+        <stop offset="75%" stop-color="black" />
+        <stop offset="100%" stop-color="red" />
+      </radialGradient>
+    </defs>
+    <circle cx="250" cy="250" r="200" fill="url(#gradient)" />
+    <line x1="250" y1="50" x2="250" y2="450" />
+    <line x1="50" y1="250" x2="450" y2="250" />
+    <circle cx="125" cy="125" r="50" fill="url(#gradient)" />
+    <circle cx="375" cy="125" r="50" fill="url(#gradient)" />
+    <circle cx="125" cy="375" r="50" fill="url(#gradient)" />
+    <circle cx="375" cy="375" r="50" fill="url(#gradient)" />
+    <line x1="125" y1="250" x2="375" y2="250" />
+    <line x1="250" y1="125" x2="250" y2="375" />
+  </svg>
+
+  <script>
+    const ball = document.getElementById('ball');
+    const web = document.getElementById('web');
+
+    ball.addEventListener('click', () => {
+      web.style.display = 'block';
+    });
+
+    ball.addEventListener('animationend', () => {
+      web.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
+
+
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Avant-Garde Interactive Website</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <div class="background">
+    <div class="ball">
+      <div class="inner-ball"></div>
+    </div>
+  </div>
+  <div class="menu">
+    <ul>
+      <li>Personal</li>
+      <li>Books</li>
+      <li>Résumé</li>
+      <li>Links</li>
+    </ul>
+  </div>
+
+  <script>
+    const ball = document.querySelector(".ball");
+    ball.addEventListener("click", () => {
+      ball.classList.add("expand");
+      setTimeout(() => {
+        window.location.href = "personal.html";
+      }, 1000);
+    });
+  </script>
+</body>
+
+</html>
+```
+
+```css
+/* Global Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: black;
+  color: white;
+}
+
+/* Background Animation */
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.ball {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: white;
+  animation: bounce 2s infinite alternate;
+}
+
+.ball.expand {
+  animation: expand 1s forwards;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes expand {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(20);
+  }
+}
+
+/* Menu Styles */
+
+.menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100vh;
+  background-color: white;
+  padding: 20px;
+}
+
+.menu ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.menu li {
+  cursor: pointer;
+}
+
+.menu li:hover {
+  color: blue;
+}
+```
+
+```javascript
+// Get the ball element
+const ball = document.querySelector(".ball");
+
+// Add an event listener for the click event
+ball.addEventListener("click", () => {
+  // Add the "expand" class to the ball element
+  ball.classList.add("expand");
+
+  // Set a timeout to redirect the user to the "personal.html" page after 1 second
+  setTimeout(() => {
+    window.location.href = "personal.html";
+  }, 1000);
+});
